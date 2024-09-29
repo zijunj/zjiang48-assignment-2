@@ -1,0 +1,50 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 0;
+}
+.App {
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+  color: salmon
+}
+.controls {
+  margin-bottom: 20px;
+}
+
+.controls > div {
+  margin: 10px 0;
+}
+
+.numClusters input, .controls select{
+  width: 400px;
+    padding: 10px;
+    margin-bottom: 10px;
+
+}
+
+button {
+  background-color: salmon;
+  color: white;
+  margin-bottom: 10px;
+  padding: 10px 15px;
+  font-size: 16px;
+}
+
+select {
+  padding: 5px;
+  font-size: 16px;
+}
+
+p {
+  font-size: 16px;
+  color: #555;
+}
