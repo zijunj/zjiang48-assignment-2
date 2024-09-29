@@ -40,7 +40,9 @@ function App() {
     setCurrentStep(0);
     setIsManualMode(initMethod === 'manual');
     setManualCentroids([]);
-  }, [initMethod, numClusters]);
+  }, [numClusters]);
+
+  
 
   // Generate new dataset
   const generateDataset = () => {
@@ -130,6 +132,20 @@ function App() {
     }
   };
 
+  const changeInitMethod = (newInitMethod) => {
+    setInitMethod(newInitMethod);
+    const km = new KMeans(data, numClusters, newInitMethod);
+    if (newInitMethod !== 'manual') {
+      km.initializeCentroids();
+    }
+    setKMeans(km);
+    setCentroids(km.centroids);
+    setClusters(km.clusters);
+    setCurrentStep(0);
+    setIsManualMode(newInitMethod === 'manual');
+    setManualCentroids([]);
+  };
+
   return (
     <div className="App">
       <h1>KMeans Clustering Visualization</h1>
@@ -149,7 +165,7 @@ function App() {
 
       <Controls
         initMethod={initMethod}
-        setInitMethod={setInitMethod}
+        setInitMethod={changeInitMethod}
         generateDataset={generateDataset}
         stepKMeans={stepKMeans}
         runKMeans={runKMeans}
