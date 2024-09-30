@@ -24,13 +24,13 @@ function App() {
   const [clusters, setClusters] = useState([]);
   const [isManualMode, setIsManualMode] = useState(false);
   const [manualCentroids, setManualCentroids] = useState([]);
-  const [numClusters, setNumClusters] = useState(3); // Number of clusters
+  const [numClusters, setNumClusters] = useState(0); // Number of clusters
 
   // Initialization useEffect
   useEffect(() => {
-    const initialData = generateRandomDataset();
-    setData(initialData);
-    const km = new KMeans(initialData, numClusters, initMethod);
+    // const initialData = generateRandomDataset();
+    // setData(initialData);
+    const km = new KMeans(data, numClusters, initMethod);
     if (initMethod !== 'manual') {
       km.initializeCentroids();
     }
